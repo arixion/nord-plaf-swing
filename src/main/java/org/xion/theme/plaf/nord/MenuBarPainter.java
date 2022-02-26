@@ -11,6 +11,15 @@ public class MenuBarPainter extends AbstractRegionPainter {
     private PaintContext paintContext;
     private Rectangle2D rect;
 
+    private Color colorNord1 = decodeColor("nord1", 13, 82, 91, 255);
+
+    /**
+     *
+     * @param paintContext
+     */
+    public MenuBarPainter(PaintContext paintContext) {
+        paintContext = paintContext;
+    }
 
     @Override
     protected PaintContext getPaintContext() {
@@ -27,15 +36,15 @@ public class MenuBarPainter extends AbstractRegionPainter {
      * @param g
      */
     private void paint(Graphics2D g) {
-
+        createRect();
+        g.fill(rect);
+        g.setBackground(colorNord1);
     }
 
     /**
      *
-     * @return
      */
-    private Rectangle2D createRect() {
+    private void createRect() {
         rect.setRect(decodeX(1.0f), decodeY(0.0f), decodeX(2.0f) - decodeX(1.0f), decodeX(2.0f) - decodeX(1.0f));
-        return rect;
     }
 }
